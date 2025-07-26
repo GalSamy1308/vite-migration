@@ -8,16 +8,20 @@ WORKDIR /app
 # Copy package.json and package-lock.json to the container
 COPY package*.json ./
 
+
 # Install dependencies
 RUN npm install
 
 # Copy the rest of the application files to the container
 COPY . .
 
+
+
+
 # Expose the port used by the React development server
 EXPOSE 5173
 
 # Command to start the React development server
-RUN echo "Container built. Sleeping for debug..." && sleep infinity
+# RUN echo "Container built. Sleeping for debug..." && sleep infinity
 
 CMD ["sh", "-c", "node --version && npm run start"]
